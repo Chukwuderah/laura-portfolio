@@ -1,26 +1,209 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-size: 16px;
+  
+  /* Custom Brand Colors */
+  --brand-primary: #565449;
+  --brand-primary-light: #6e6b5e;
+  --brand-primary-dark: #3d3b33;
+  --brand-secondary: #D8CFBC;
+  --brand-secondary-light: #e8e2d4;
+  --brand-secondary-dark: #c4b8a3;
+  --brand-accent: #FFFBF4;
+  --brand-dark: #11120D;
+  --brand-darker: #000000;
+  
+  --background: #FFFBF4;
+  --foreground: #11120D;
+  --card: #ffffff;
+  --card-foreground: #11120D;
+  --popover: #ffffff;
+  --popover-foreground: #11120D;
+  --primary: #565449;
+  --primary-foreground: #FFFBF4;
+  --secondary: #D8CFBC;
+  --secondary-foreground: #11120D;
+  --muted: #e8e2d4;
+  --muted-foreground: #565449;
+  --accent: #D8CFBC;
+  --accent-foreground: #11120D;
+  --destructive: #d4183d;
+  --destructive-foreground: #FFFBF4;
+  --border: rgba(86, 84, 73, 0.2);
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #D8CFBC;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #565449;
+  --chart-1: #565449;
+  --chart-2: #D8CFBC;
+  --chart-3: #FFFBF4;
+  --chart-4: #11120D;
+  --chart-5: #6e6b5e;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #11120D;
+  --sidebar-primary: #565449;
+  --sidebar-primary-foreground: #FFFBF4;
+  --sidebar-accent: #D8CFBC;
+  --sidebar-accent-foreground: #11120D;
+  --sidebar-border: rgba(86, 84, 73, 0.2);
+  --sidebar-ring: #565449;
+}
+
+.dark {
+  --background: #11120D;
+  --foreground: #FFFBF4;
+  --card: #1a1b16;
+  --card-foreground: #FFFBF4;
+  --popover: #1a1b16;
+  --popover-foreground: #FFFBF4;
+  --primary: #D8CFBC;
+  --primary-foreground: #11120D;
+  --secondary: #565449;
+  --secondary-foreground: #FFFBF4;
+  --muted: #2d2e28;
+  --muted-foreground: #D8CFBC;
+  --accent: #2d2e28;
+  --accent-foreground: #D8CFBC;
+  --destructive: #d4183d;
+  --destructive-foreground: #FFFBF4;
+  --border: rgba(216, 207, 188, 0.2);
+  --input: rgba(216, 207, 188, 0.1);
+  --ring: #D8CFBC;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #D8CFBC;
+  --chart-2: #565449;
+  --chart-3: #FFFBF4;
+  --chart-4: #3d3b33;
+  --chart-5: #6e6b5e;
+  --sidebar: #1a1b16;
+  --sidebar-foreground: #FFFBF4;
+  --sidebar-primary: #D8CFBC;
+  --sidebar-primary-foreground: #11120D;
+  --sidebar-accent: #2d2e28;
+  --sidebar-accent-foreground: #D8CFBC;
+  --sidebar-border: rgba(216, 207, 188, 0.2);
+  --sidebar-ring: #D8CFBC;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Brand Colors */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-primary-dark: var(--brand-primary-dark);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-secondary-light: var(--brand-secondary-light);
+  --color-brand-secondary-dark: var(--brand-secondary-dark);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-darker: var(--brand-darker);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
 }
