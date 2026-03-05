@@ -190,7 +190,7 @@ export default function PortfolioPage() {
             Not Sure Which Service You Need?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Let's chat about your goals and I'll help you find the perfect
+            Let&apos;s chat about your goals and I&apos;ll help you find the perfect
             solution.
           </p>
           <Link

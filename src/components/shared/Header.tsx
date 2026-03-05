@@ -1,10 +1,16 @@
 "use client";
 
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+
+import dynamic from "next/dynamic";
+
+const ThemeToggle = dynamic(
+  () => import("@/components/shared/ThemeToggle").then((m) => m.ThemeToggle),
+  { ssr: false },
+);
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -14,7 +20,6 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -36,26 +41,14 @@ export default function Header() {
         : "text-foreground/70 hover:text-primary"
     }`;
 
-  const ThemeToggle = () => (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg bg-accent shadow-md hover:shadow-lg hover:scale-105 transition-shadow cursor-pointer"
-      aria-label="Toggle theme"
-    >
-      {theme === "dark" ? (
-        <Sun className="w-5 h-5 text-secondary dark:text-primary" />
-      ) : (
-        <Moon className="w-5 h-5 text-primary" />
-      )}
-    </button>
-  );
-
   return (
     <header className="w-full bg-accent/50 dark:bg-card sticky top-0 z-50 backdrop-blur-sm will-change-transform isolate">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex items-center justify-between">
           <Link href="/" className="hover:opacity-80 transition-opacity">
-            <code className="text-sm sm:text-base font-medium text-primary">lauraenemosah</code>
+            <code className="text-sm sm:text-base font-medium text-primary">
+              lauraenemosah
+            </code>
           </Link>
 
           {/* Desktop Nav */}

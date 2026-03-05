@@ -49,7 +49,7 @@ export default function Testimonials() {
             What Clients Say
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Don't just take my word for it. Here's what my clients have to say
+            Don&apos;t just take my word for it. Here&apos;s what my clients have to say
             about working together.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function Testimonials() {
               <StarRating rating={testimonial.rating} />
 
               <p className="text-foreground/80 leading-relaxed mb-6">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
 
               <div className="flex items-center gap-4">

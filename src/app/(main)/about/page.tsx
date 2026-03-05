@@ -13,7 +13,6 @@ import {
   SectionLabel,
   AnimatedSection,
 } from "@/components/shared/section-primitives";
-import { useTheme } from "next-themes";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -67,8 +66,6 @@ const SOFT_SKILLS = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
-  const theme = useTheme().theme;
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* ── Hero ── */}

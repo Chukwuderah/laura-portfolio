@@ -331,13 +331,3 @@ export default function VirtualAssistancePage() {
     </div>
   );
 }
-
-// Small inline variant just for the tools chips — tight stagger, no y movement
-const scaleInTool = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1], delay: i * 0.05 },
-  }),
-};

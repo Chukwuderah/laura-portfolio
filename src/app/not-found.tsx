@@ -1,50 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { Home, Moon, Sun, ArrowLeft } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function NotFound() {
-  const { theme, setTheme } = useTheme();
-  const ThemeToggle = () => (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="bg-transparent animate-pulse hover:shadow-lg hover:scale-105 transition-shadow cursor-pointer"
-      aria-label="Toggle theme"
-    >
-      {theme === "dark" ? (
-        <Sun className="w-5 h-5 text-secondary dark:text-primary" />
-      ) : (
-        <Moon className="w-5 h-5 text-primary" />
-      )}
-    </button>
-  );
+import dynamic from 'next/dynamic';
 
+const ThemeToggle = dynamic(
+  () => import('@/components/shared/ThemeToggle').then(m => m.ThemeToggle),
+  { ssr: false }
+);
+
+export default function NotFound() {
   return (
     <main className="relative min-h-screen bg-background text-foreground overflow-hidden flex flex-col">
       {/* Decorative background numerals */}
       <span
         aria-hidden="true"
-        className="
-          pointer-events-none select-none
-          absolute -top-8 -left-6 sm:-top-12 sm:-left-10
-          text-[22rem] sm:text-[32rem] font-black leading-none
-          text-secondary/20 dark:text-secondary/10
-          tracking-tighter
-        "
+        className="pointer-events-none select-none absolute -top-8 -left-6 sm:-top-12 sm:-left-10 text-[22rem] sm:text-[32rem] font-black leading-none text-secondary/20 dark:text-secondary/10 tracking-tighter"
       >
         4
       </span>
       <span
         aria-hidden="true"
-        className="
-          pointer-events-none select-none
-          absolute -bottom-8 -right-6 sm:-bottom-12 sm:-right-10
-          text-[22rem] sm:text-[32rem] font-black leading-none
-          text-secondary/20 dark:text-secondary/10
-          tracking-tighter
-        "
+        className="pointer-events-none select-none absolute -bottom-8 -right-6 sm:-bottom-12 sm:-right-10 text-[22rem] sm:text-[32rem] font-black leading-none text-secondary/20 dark:text-secondary/10 tracking-tighter"
       >
         4
       </span>
@@ -80,11 +59,7 @@ export default function NotFound() {
 
         {/* Headline */}
         <h1
-          className="
-            text-center font-black leading-none tracking-tighter
-            text-[5rem] sm:text-[8rem] lg:text-[11rem]
-            text-primary dark:text-secondary
-          "
+          className="text-center font-black leading-none tracking-tighter text-[5rem] sm:text-[8rem] lg:text-[11rem] text-primary dark:text-secondary"
           style={{ fontVariantNumeric: "tabular-nums" }}
         >
           404
@@ -109,14 +84,7 @@ export default function NotFound() {
         <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/"
-            className="
-             flex items-center gap-2 w-full sm:w-auto justify-center
-              bg-primary dark:bg-secondary
-              text-primary-foreground dark:text-secondary-foreground
-              px-7 py-3 rounded-md sm:rounded-full text-sm font-medium
-              hover:opacity-90 active:scale-[0.97]
-              transition-all duration-200
-            "
+            className="flex items-center gap-2 w-full sm:w-auto justify-center bg-primary dark:bg-secondary text-primary-foreground dark:text-secondary-foreground px-7 py-3 rounded-md sm:rounded-full text-sm font-medium hover:opacity-90 active:scale-[0.97] transition-all duration-200"
           >
             <Home className="w-5 h-5" />
             Go Home
@@ -126,13 +94,7 @@ export default function NotFound() {
             variant="ghost"
             size="lg"
             onClick={() => history.back()}
-            className="
-             w-full sm:w-auto border border-border
-              text-foreground/80 text-center cursor-pointer
-              px-7 py-3 rounded-md sm:rounded-full text-sm font-medium
-              hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary
-              transition-all duration-200
-            "
+            className="w-full sm:w-auto border border-border text-foreground/80 text-center cursor-pointer px-7 py-3 rounded-md sm:rounded-full text-sm font-medium hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Go Back

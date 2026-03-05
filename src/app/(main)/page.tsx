@@ -3,13 +3,16 @@
 import { Sparkles, ArrowRight, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import Testimonials from "@/components/home/Testimonial";
-import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
+
+const HeroImage = dynamic(
+  () => import("@/components/home/HeroImage").then((m) => m.HeroImage),
+  { ssr: false },
+);
 
 export default function Home() {
-  const theme = useTheme().theme;
   return (
     <main>
       <section className="w-full bg-accent dark:bg-background py-20 md:py-32 relative overflow-hidden">
@@ -55,7 +58,7 @@ export default function Home() {
                 href="/contact"
                 className="group px-8 py-4 bg-primary dark:bg-secondary text-primary-foreground dark:text-secondary-foreground rounded-lg font-semibold hover:shadow-xl transition-all flex items-center justify-center gap-2"
               >
-                Let's Work Together
+                Let&apos;s Work Together
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -74,13 +77,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl flex items-center gap-12 mx-auto">
             <div className="hidden sm:block w-1/2 rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src={theme === "dark" ? "/creative-thinking-2.gif" : "/creative-thinking.gif"}
-                alt="Creative Thinking"
-                width={900}
-                height={900}
-                className="w-full h-auto"
-              />
+              <HeroImage />
             </div>
 
             <div className="text-center">
@@ -117,8 +114,8 @@ export default function Home() {
               Ready to Elevate Your Business?
             </h2>
             <p className="text-xl mb-10 opacity-90">
-              Let's discuss how I can help you achieve your goals. Get in touch
-              for a free consultation.
+              Let&apos;s discuss how I can help you achieve your goals. Get in
+              touch for a free consultation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

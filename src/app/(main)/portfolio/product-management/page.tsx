@@ -13,7 +13,6 @@ import { motion } from "framer-motion";
 import {
   fadeUp,
   fadeIn,
-  scaleIn,
   slideLeft,
   slideRight,
 } from "@/lib/animation-variants";
