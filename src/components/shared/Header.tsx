@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail, Linkedin, Twitter, Instagram } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -18,6 +18,33 @@ const navLinks = [
   { href: "/about", label: "About Me" },
   { href: "/contact", label: "Contact" },
 ];
+
+const SOCIAL_LINKS = [
+  {
+    href: "mailto:laura@example.com",
+    label: "Email",
+    icon: Mail,
+    external: false,
+  },
+  {
+    href: "https://linkedin.com",
+    label: "LinkedIn",
+    icon: Linkedin,
+    external: true,
+  },
+  {
+    href: "https://twitter.com",
+    label: "Twitter",
+    icon: Twitter,
+    external: true,
+  },
+  {
+    href: "https://instagram.com",
+    label: "Instagram",
+    icon: Instagram,
+    external: true,
+  },
+] as const;
 
 export default function Header() {
   const pathname = usePathname();
@@ -47,7 +74,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <code className="text-sm sm:text-base font-medium text-primary">
-              lauraenemosah
+              lauraeleojo
             </code>
           </Link>
 
@@ -80,17 +107,32 @@ export default function Header() {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <nav className="md:hidden mt-6 flex flex-col items-center justify-center gap-4 pb-4 h-screen">
+          <nav className="relative md:hidden flex flex-col items-center justify-center gap-4 pb-4 h-screen">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-foreground/70 text-2xl font-semibold hover:text-primary transition-colors"
+                className="text-foreground/70 text-3xl text-center font-semibold hover:text-primary transition-colors w-full"
               >
                 {label}
               </Link>
             ))}
+            
+            <div className="absolute bottom-[20%] left-3 flex flex-col gap-4">
+              {SOCIAL_LINKS.map(({ href, label, icon: Icon, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  <Icon className="w-6 h-6 text-foreground/70" />
+                </a>
+              ))}
+            </div>
           </nav>
         )}
       </div>

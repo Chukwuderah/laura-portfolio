@@ -17,13 +17,13 @@ const SERVICE_LINKS = [
 
 const SOCIAL_LINKS = [
   {
-    href: "mailto:laura@example.com",
+    href: "mailto:lauraeleojo@gmail.com",
     label: "Email",
     icon: Mail,
     external: false,
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/laura-enemosah-58281630b/",
     label: "LinkedIn",
     icon: Linkedin,
     external: true,
@@ -43,9 +43,9 @@ const SOCIAL_LINKS = [
 ] as const;
 
 const CONTACT_DETAILS = [
-  { href: "mailto:laura@example.com", label: "laura@example.com" },
-  { href: "tel:+1234567890", label: "+1 (234) 567-890" },
-  { label: "San Francisco, CA" },
+  { href: "mailto:lauraeleojo@gmail.com", label: "lauraeleojo@gmail.com" },
+  { href: "tel:2348053603595", label: "+2348053603595" },
+  { label: "Lagos, Nigeria" },
   { label: "Available for remote work" },
 ] as const;
 
@@ -91,7 +91,7 @@ export default function Footer() {
               className="inline-block mb-4 hover:opacity-80 transition-opacity"
             >
               <h3 className="text-2xl font-bold text-secondary dark:text-primary leading-tight">
-                Laura <br className="hidden sm:block" /> Enemosah
+                Laura Eleojo
               </h3>
             </Link>
             <p className="text-background/70 dark:text-foreground/70 mb-6 text-sm leading-relaxed">
@@ -148,7 +148,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-background/20 dark:border-foreground/20 text-sm text-center text-background/70 dark:text-foreground/70">
-          <p>&copy; {currentYear} Laura Enemosah. All rights reserved.</p>
+          <p>&copy; {currentYear} Laura Eleojo. All rights reserved.</p>
         </div>
       </div>
     </footer>

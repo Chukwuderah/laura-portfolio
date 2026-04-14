@@ -37,7 +37,7 @@ export default function NotFound() {
           href="/"
           className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase"
         >
-          Laura Enemosah
+          Laura Eleojo
         </Link>
         <div className="flex items-center gap-4">
           <ThemeToggle />

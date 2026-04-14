@@ -82,7 +82,7 @@ export default function Home() {
 
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Meet Laura Enemosah
+                Meet Laura
               </h2>
 
               <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">

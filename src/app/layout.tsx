@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Laura Enemosah",
+  title: "Laura Eleojo",
   description: "I'm a multidisciplinary professional passionate about helping businesses achieve their goals through strategic execution, creative excellence, and reliable support.",
 };
 

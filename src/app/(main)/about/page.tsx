@@ -99,7 +99,7 @@ export default function AboutPage() {
               Laura{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-primary dark:text-secondary">
-                  Enemosah
+                  Eleojo
                 </span>
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -157,7 +157,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8">
                   My Story
                 </h2>
-                <div className="space-y-5 text-foreground/65 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-5 text-foreground/65 text-base sm:text-xl text-justify sm:text-left leading-relaxed">
                   <p>
                     With over 7 years of experience across writing, product
                     management, graphic design, and virtual assistance,
@@ -189,15 +189,13 @@ export default function AboutPage() {
                 className="relative rounded-2xl overflow-hidden shadow-2xl border border-border aspect-4/5 bg-accent dark:bg-muted"
               >
                 <Image
-                  src="/about-hero.png"
-                  alt="Laura Enemosah"
+                  src="/laura.jpg"
+                  alt="Laura Eleojo"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-                {/* Colour wash overlay */}
-                <div className="absolute inset-0 bg-primary/5 dark:bg-primary/10" />
               </motion.div>
             </AnimatedSection>
           </div>
