@@ -186,8 +186,13 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      // Replace with your actual API call, e.g. fetch('/api/contact', { method: 'POST', body: ... })
-      await new Promise((resolve) => setTimeout(resolve, 1400));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send message");
 
       toast.success("Message sent! I'll get back to you within 24 hours.", {
         description: `Thanks, ${result.data.name}. Looking forward to connecting.`,
@@ -380,7 +385,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group w-full inline-flex items-center justify-center gap-3 bg-primary dark:bg-secondary text-primary-foreground dark:text-secondary-foreground px-8 py-4 rounded-lg text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 mt-2"
+                    className="group w-full inline-flex items-center justify-center gap-3 bg-primary dark:bg-secondary text-primary-foreground dark:text-secondary-foreground px-8 py-4 rounded-lg text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer transition-all duration-200 mt-2"
                   >
                     {loading ? (
                       <>
@@ -389,7 +394,7 @@ export default function ContactPage() {
                       </>
                     ) : (
                       <>
-                        <Send className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <Send className="w-5 h-5" />
                         Send Message
                       </>
                     )}

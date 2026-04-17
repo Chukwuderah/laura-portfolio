@@ -15,7 +15,7 @@ export default function MainLayout({
         {children}
         <Footer />
       </div>
-      <Toaster position="bottom-right" richColors />
+      <Toaster position="top-right" richColors />
     </main>
   );
 }
